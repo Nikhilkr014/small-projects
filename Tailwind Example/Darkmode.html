@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en" class="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tailwind Only Website — Animated (with Dark Mode)</title>
+
+  <!-- Tailwind Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind config: enable class-based dark mode -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0ea5a4',
+            accent: '#7c3aed'
+          },
+          fontFamily: {
+            sans: ['Inter','ui-sans-serif','system-ui','Segoe UI','Roboto','Helvetica','Arial']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="antialiased text-slate-700 bg-slate-50 dark:bg-slate-900 dark:text-slate-300 transition-colors duration-200">
+
+  <!-- NAV -->
+  <header class="bg-white shadow-sm dark:bg-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <a href="#" class="flex items-center gap-3">
+          <svg class="h-8 w-8 text-primary transition-transform duration-300 ease-out transform hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 8c-1.657 0-3 1.567-3 3.5S10.343 15 12 15s3-1.567 3-3.5S13.657 8 12 8zM12 3v2M12 19v2M4.2 7.8l1.4 1.4M18.4 15.8l1.4 1.4M4.2 16.2l1.4-1.4M18.4 8.2l1.4-1.4" />
+          </svg>
+          <span class="font-semibold text-lg transition-colors duration-200 hover:text-slate-900 dark:hover:text-white text-slate-900 dark:text-slate-100">TailwindOnly</span>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-6">
+          <a href="#features" class="text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors duration-200">Features</a>
+          <a href="#pricing" class="text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors duration-200">Pricing</a>
+          <a href="#contact" class="text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors duration-200">Contact</a>
+
+          <!-- Theme toggle in the dashboard / header -->
+          <button id="themeToggle" aria-pressed="false" class="inline-flex items-center gap-2 px-3 py-2 rounded-md border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-200 hover:shadow-sm transition-all duration-150">
+            <svg id="iconSun" class="h-5 w-5 text-yellow-400 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364 6.364l-1.414-1.414M7.05 7.05L5.636 5.636m12.728 0L17.95 7.05M7.05 16.95l-1.414 1.414" />
+            </svg>
+            <svg id="iconMoon" class="h-5 w-5 text-indigo-400 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+            </svg>
+            <span id="themeLabel" class="text-sm">Toggle</span>
+          </button>
+
+          <a href="#"
+             class="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-md shadow-sm hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-250 ease-out">
+             Get Started
+          </a>
+        </nav>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden flex items-center gap-2">
+          <button id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" class="p-2 rounded-md inline-flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white focus:outline-none transition-shadow duration-200 hover:shadow-md">
+            <svg id="menuOpenIcon" class="h-6 w-6 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="menuCloseIcon" class="h-6 w-6 hidden transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+
+          <!-- small theme toggle for mobile header (keeps it accessible in the dashboard) -->
+          <button id="themeToggleMobile" aria-pressed="false" class="p-2 rounded-md inline-flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white focus:outline-none transition-shadow duration-200">
+            <svg id="iconSunMobile" class="h-5 w-5 text-yellow-400 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364 6.364l-1.414-1.414M7.05 7.05L5.636 5.636m12.728 0L17.95 7.05M7.05 16.95l-1.414 1.414" />
+            </svg>
+            <svg id="iconMoonMobile" class="h-5 w-5 text-indigo-400 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="md:hidden hidden border-t dark:border-slate-700">
+      <div class="px-4 py-4 space-y-3">
+        <a href="#features" class="block text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">Features</a>
+        <a href="#pricing" class="block text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">Pricing</a>
+        <a href="#contact" class="block text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">Contact</a>
+
+        <div class="flex items-center justify-between">
+          <a href="#" class="block mt-2 px-4 py-2 bg-primary text-white rounded-md text-center shadow-sm hover:shadow-lg transform hover:-translate-y-0.5 transition-all">Get Started</a>
+
+          <!-- mobile theme toggle inside menu for convenience -->
+          <button id="themeToggleMobileMenu" class="ml-2 inline-flex items-center gap-2 px-3 py-2 rounded-md border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-200 hover:shadow-sm transition-all duration-150">
+            <svg id="iconSunMM" class="h-5 w-5 text-yellow-400 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364 6.364l-1.414-1.414M7.05 7.05L5.636 5.636m12.728 0L17.95 7.05M7.05 16.95l-1.414 1.414" />
+            </svg>
+            <svg id="iconMoonMM" class="h-5 w-5 text-indigo-400 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+            </svg>
+            <span class="text-sm">Theme</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section class="bg-gradient-to-r from-white via-slate-50 to-white dark:from-slate-900 dark:via-slate-900 dark:to-slate-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+              Build beautiful websites using only Tailwind
+            </h1>
+            <p class="mt-6 text-lg text-slate-600 dark:text-slate-300">
+              No custom CSS files. All styles created with utility classes — fast to build, easy to maintain,
+              and fully responsive out-of-the-box.
+            </p>
+
+            <div class="mt-8 flex flex-col sm:flex-row gap-3">
+              <a href="#pricing" class="inline-flex items-center justify-center px-6 py-3 bg-accent text-white rounded-md shadow-md hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300">
+                See Pricing
+              </a>
+              <a href="#features" class="inline-flex items-center justify-center px-6 py-3 border border-slate-200 rounded-md text-slate-700 dark:text-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 hover:shadow-sm transform hover:-translate-y-0.5 transition-all duration-200">
+                Explore Features
+              </a>
+            </div>
+
+            <div class="mt-6 text-sm text-slate-500 dark:text-slate-400">
+              Trusted by developers and designers — no build step required for demos.
+            </div>
+          </div>
+
+          <div class="rounded-2xl bg-gradient-to-br from-primary/10 to-accent/5 p-1 transform transition-all duration-400 hover:shadow-2xl hover:scale-[1.01]">
+            <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 sm:p-8 shadow-lg dark:shadow-none border border-slate-100 dark:border-slate-700">
+              <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100">Quick demo</h3>
+              <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">A sample card using only Tailwind classes.</p>
+
+              <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-lg border border-slate-100 dark:border-slate-700 transition-all duration-250 transform hover:-translate-y-1 hover:shadow-md">
+                  <h4 class="text-sm font-medium text-slate-900 dark:text-slate-100">Performance</h4>
+                  <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Optimized by default</p>
+                </div>
+                <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-lg border border-slate-100 dark:border-slate-700 transition-all duration-250 transform hover:-translate-y-1 hover:shadow-md">
+                  <h4 class="text-sm font-medium text-slate-900 dark:text-slate-100">Responsive</h4>
+                  <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Mobile-first utilities</p>
+                </div>
+              </div>
+
+              <div class="mt-6 flex items-center gap-3">
+                <div class="flex items-center gap-3">
+                  <span class="inline-flex items-center justify-center h-10 w-10 rounded-full bg-primary/10 text-primary dark:bg-primary/20 transition-shadow duration-200">
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 13l4 4L19 7" />
+                    </svg>
+                  </span>
+                  <div>
+                    <div class="text-sm font-medium text-slate-900 dark:text-slate-100">Ready to ship</div>
+                    <div class="text-xs text-slate-500 dark:text-slate-400">Start in minutes</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white">Everything you need</h2>
+        <p class="mt-3 text-lg text-slate-600 dark:text-slate-300">Components, layouts and utilities — designed with Tailwind's utility-first approach.</p>
+      </div>
+
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <article class="p-6 bg-white dark:bg-slate-800 rounded-lg shadow-sm dark:shadow-none border border-slate-100 dark:border-slate-700 transition-transform duration-300 transform hover:-translate-y-1 hover:shadow-xl">
+          <div class="flex items-center justify-between">
+            <div class="text-slate-900 dark:text-slate-100 font-semibold">Component Library</div>
+            <span class="text-xs text-white bg-primary px-2 py-1 rounded">New</span>
+          </div>
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Pre-styled patterns built with Tailwind utilities.</p>
+          <ul class="mt-4 space-y-2 text-sm text-slate-600 dark:text-slate-300">
+            <li>Cards, forms, navs</li>
+            <li>Accessible components</li>
+            <li>Dark & light friendly</li>
+          </ul>
+        </article>
+
+        <article class="p-6 bg-white dark:bg-slate-800 rounded-lg shadow-sm dark:shadow-none border border-slate-100 dark:border-slate-700 transition-transform duration-300 transform hover:-translate-y-1 hover:shadow-xl">
+          <div class="flex items-center justify-between">
+            <div class="text-slate-900 dark:text-slate-100 font-semibold">Responsive by default</div>
+            <span class="text-xs text-slate-500 dark:text-slate-300 px-2 py-1 rounded">Mobile-first</span>
+          </div>
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Utilities for any screen size, ready to combine.</p>
+          <ul class="mt-4 space-y-2 text-sm text-slate-600 dark:text-slate-300">
+            <li>Flex, Grid, Spacing</li>
+            <li>Breakpoints & modifiers</li>
+            <li>Utility composition</li>
+          </ul>
+        </article>
+
+        <article class="p-6 bg-white dark:bg-slate-800 rounded-lg shadow-sm dark:shadow-none border border-slate-100 dark:border-slate-700 transition-transform duration-300 transform hover:-translate-y-1 hover:shadow-xl">
+          <div class="flex items-center justify-between">
+            <div class="text-slate-900 dark:text-slate-100 font-semibold">No CSS files</div>
+            <span class="text-xs text-slate-500 dark:text-slate-300 px-2 py-1 rounded">Zero custom CSS</span>
+          </div>
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">All styles are written with Tailwind utility classes inside HTML.</p>
+          <ul class="mt-4 space-y-2 text-sm text-slate-600 dark:text-slate-300">
+            <li>Fast prototyping</li>
+            <li>Small bundle (with purge)</li>
+            <li>Easy theme changes</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="bg-white dark:bg-slate-900 border-t border-b border-slate-100 dark:border-slate-700">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="text-center">
+          <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white">Pricing plans</h2>
+          <p class="mt-3 text-slate-600 dark:text-slate-300">Simple pricing — pick a plan that fits.</p>
+        </div>
+
+        <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="p-6 rounded-lg border border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100">Starter</h3>
+            <p class="mt-4 text-3xl font-extrabold text-slate-900 dark:text-white">$0<span class="text-sm font-medium text-slate-500 dark:text-slate-300">/mo</span></p>
+            <ul class="mt-6 space-y-3 text-sm text-slate-600 dark:text-slate-300">
+              <li>Basic components</li>
+              <li>Community support</li>
+              <li>100MB assets</li>
+            </ul>
+            <a href="#" class="mt-6 inline-block w-full text-center px-4 py-2 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-md hover:bg-slate-100 dark:hover:bg-slate-700 hover:shadow-md transition-all">Get started</a>
+          </div>
+
+          <div class="p-6 rounded-lg border border-slate-100 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-lg dark:shadow-none transform transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl">
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100">Pro</h3>
+            <p class="mt-4 text-3xl font-extrabold text-slate-900 dark:text-white">$12<span class="text-sm font-medium text-slate-500 dark:text-slate-300">/mo</span></p>
+            <ul class="mt-6 space-y-3 text-sm text-slate-600 dark:text-slate-300">
+              <li>Advanced components</li>
+              <li>Priority support</li>
+              <li>5GB assets</li>
+            </ul>
+            <a href="#" class="mt-6 inline-block w-full text-center px-4 py-2 bg-accent text-white rounded-md hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">Choose Pro</a>
+          </div>
+
+          <div class="p-6 rounded-lg border border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100">Enterprise</h3>
+            <p class="mt-4 text-3xl font-extrabold text-slate-900 dark:text-white">$49<span class="text-sm font-medium text-slate-500 dark:text-slate-300">/mo</span></p>
+            <ul class="mt-6 space-y-3 text-sm text-slate-600 dark:text-slate-300">
+              <li>Team licenses</li>
+              <li>SSO & audit logs</li>
+              <li>Unlimited assets</li>
+            </ul>
+            <a href="#" class="mt-6 inline-block w-full text-center px-4 py-2 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-md hover:bg-slate-100 dark:hover:bg-slate-700 hover:shadow-md transition-all">Contact Sales</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white">Contact Us</h2>
+          <p class="mt-4 text-slate-600 dark:text-slate-300">Have a question or want a custom plan? Send us a message and we'll get back to you.</p>
+
+          <dl class="mt-8 space-y-4 text-sm text-slate-600 dark:text-slate-300">
+            <div class="flex items-start gap-3">
+              <svg class="h-6 w-6 text-primary mt-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <div>
+                <dt class="font-medium text-slate-900 dark:text-white">Email</dt>
+                <dd class="mt-1">hello@example.com</dd>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <svg class="h-6 w-6 text-primary mt-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 5h12M9 3v2m6 16v-6a2 2 0 00-2-2H7l-4 4v4h16z" />
+              </svg>
+              <div>
+                <dt class="font-medium text-slate-900 dark:text-white">Support</dt>
+                <dd class="mt-1">support@example.com</dd>
+              </div>
+            </div>
+          </dl>
+        </div>
+
+        <form action="#" class="bg-white dark:bg-slate-800 rounded-lg p-6 shadow-sm dark:shadow-none border border-slate-100 dark:border-slate-700 transition-shadow duration-300 hover:shadow-md">
+          <div class="grid gap-4">
+            <label class="block">
+              <span class="text-sm font-medium text-slate-700 dark:text-slate-200">Name</span>
+              <input required type="text" placeholder="Your name" class="mt-1 block w-full rounded-md border-slate-200 dark:border-slate-600 shadow-sm focus:border-primary focus:ring focus:ring-primary/20 focus:ring-offset-0 transition-all duration-150 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100" />
+            </label>
+
+            <label class="block">
+              <span class="text-sm font-medium text-slate-700 dark:text-slate-200">Email</span>
+              <input required type="email" placeholder="you@domain.com" class="mt-1 block w-full rounded-md border-slate-200 dark:border-slate-600 shadow-sm focus:border-primary focus:ring focus:ring-primary/20 focus:ring-offset-0 transition-all duration-150 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100" />
+            </label>
+
+            <label class="block">
+              <span class="text-sm font-medium text-slate-700 dark:text-slate-200">Message</span>
+              <textarea required rows="4" placeholder="How can we help?" class="mt-1 block w-full rounded-md border-slate-200 dark:border-slate-600 shadow-sm focus:border-primary focus:ring focus:ring-primary/20 focus:ring-offset-0 transition-all duration-150 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100"></textarea>
+            </label>
+
+            <div class="flex items-center justify-between">
+              <button type="submit" class="inline-flex items-center px-4 py-2 bg-accent text-white rounded-md hover:shadow-2xl transform hover:-translate-y-0.5 transition-all duration-250">Send message</button>
+              <span class="text-sm text-slate-500 dark:text-slate-400">We reply within 24 hours.</span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <svg class="h-6 w-6 text-primary transition-transform duration-200 transform hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 8c-1.657 0-3 1.567-3 3.5S10.343 15 12 15s3-1.567 3-3.5S13.657 8 12 8zM12 3v2M12 19v2"/>
+        </svg>
+        <span class="font-semibold text-white">TailwindOnly</span>
+      </div>
+
+      <p class="text-sm">© <span id="year">2025</span> TailwindOnly. All rights reserved.</p>
+
+      <div class="flex gap-3">
+        <a href="#" class="text-slate-400 hover:text-white text-sm transition-colors hover:underline">Privacy</a>
+        <a href="#" class="text-slate-400 hover:text-white text-sm transition-colors hover:underline">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Minimal JS for menu toggle + accessibility + theme toggle (persisted) -->
+  <script>
+    (function() {
+      // Menu toggle
+      const btn = document.getElementById('menuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const openIcon = document.getElementById('menuOpenIcon');
+      const closeIcon = document.getElementById('menuCloseIcon');
+
+      if (btn) {
+        btn.addEventListener('click', function() {
+          const visible = mobileMenu.classList.toggle('hidden') === false;
+          btn.setAttribute('aria-expanded', visible);
+          openIcon.classList.toggle('hidden');
+          closeIcon.classList.toggle('hidden');
+
+          // subtle icon rotation when toggled
+          openIcon.classList.toggle('rotate-90');
+          closeIcon.classList.toggle('rotate-90');
+        });
+      }
+
+      // Set current year
+      const y = new Date().getFullYear();
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = y;
+
+      // Theme toggle logic: stores 'theme' in localStorage = 'dark' or 'light'
+      const THEME_KEY = 'theme-preference';
+
+      const root = document.documentElement;
+      const themeToggle = document.getElementById('themeToggle');
+      const themeToggleMobile = document.getElementById('themeToggleMobile');
+      const themeToggleMobileMenu = document.getElementById('themeToggleMobileMenu');
+
+      const iconSun = document.getElementById('iconSun');
+      const iconMoon = document.getElementById('iconMoon');
+      const iconSunMobile = document.getElementById('iconSunMobile');
+      const iconMoonMobile = document.getElementById('iconMoonMobile');
+      const iconSunMM = document.getElementById('iconSunMM');
+      const iconMoonMM = document.getElementById('iconMoonMM');
+      const themeLabel = document.getElementById('themeLabel');
+
+      function applyTheme(theme) {
+        if (theme === 'dark') {
+          root.classList.add('dark');
+          if (themeLabel) themeLabel.textContent = 'Dark';
+          if (themeToggle) themeToggle.setAttribute('aria-pressed', 'true');
+          if (themeToggleMobile) themeToggleMobile.setAttribute('aria-pressed', 'true');
+          if (themeToggleMobileMenu) themeToggleMobileMenu.setAttribute('aria-pressed', 'true');
+          // icons
+          if (iconMoon) iconMoon.classList.remove('hidden');
+          if (iconSun) iconSun.classList.add('hidden');
+          if (iconMoonMobile) iconMoonMobile.classList.remove('hidden');
+          if (iconSunMobile) iconSunMobile.classList.add('hidden');
+          if (iconMoonMM) iconMoonMM.classList.remove('hidden');
+          if (iconSunMM) iconSunMM.classList.add('hidden');
+        } else {
+          root.classList.remove('dark');
+          if (themeLabel) themeLabel.textContent = 'Light';
+          if (themeToggle) themeToggle.setAttribute('aria-pressed', 'false');
+          if (themeToggleMobile) themeToggleMobile.setAttribute('aria-pressed', 'false');
+          if (themeToggleMobileMenu) themeToggleMobileMenu.setAttribute('aria-pressed', 'false');
+          // icons
+          if (iconSun) iconSun.classList.remove('hidden');
+          if (iconMoon) iconMoon.classList.add('hidden');
+          if (iconSunMobile) iconSunMobile.classList.remove('hidden');
+          if (iconMoonMobile) iconMoonMobile.classList.add('hidden');
+          if (iconSunMM) iconSunMM.classList.remove('hidden');
+          if (iconMoonMM) iconMoonMM.classList.add('hidden');
+        }
+      }
+
+      function getPreferredTheme() {
+        // 1. check localStorage
+        const saved = localStorage.getItem(THEME_KEY);
+        if (saved === 'dark' || saved === 'light') return saved;
+        // 2. check OS preference
+        const mql = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+        if (mql && mql.matches) return 'dark';
+        return 'light';
+      }
+
+      // initialize
+      const initialTheme = getPreferredTheme();
+      applyTheme(initialTheme);
+
+      // toggling function
+      function toggleTheme() {
+        const isDark = root.classList.contains('dark');
+        const next = isDark ? 'light' : 'dark';
+        applyTheme(next);
+        try {
+          localStorage.setItem(THEME_KEY, next);
+        } catch (e) {
+          // Storage may be disabled; ignore gracefully
+        }
+      }
+
+      // hook up buttons (if present)
+      if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+      if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
+      if (themeToggleMobileMenu) themeToggleMobileMenu.addEventListener('click', toggleTheme);
+
+      // keep mobile & header icons in sync if user switches via OS while page is open
+      if (window.matchMedia) {
+        const mql = window.matchMedia('(prefers-color-scheme: dark)');
+        mql.addEventListener && mql.addEventListener('change', function() {
+          const saved = localStorage.getItem(THEME_KEY);
+          // only follow system change if user did not explicitly set a preference
+          if (!saved) {
+            applyTheme(mql.matches ? 'dark' : 'light');
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

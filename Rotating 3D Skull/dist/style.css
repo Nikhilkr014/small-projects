@@ -1,0 +1,24 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  background: #000;
+  color: #fff;
+}
+
+/* Center the ASCII art on screen */
+body {
+  display: flex;
+  align-items: center;      /* vertical centering */
+  justify-content: center;  /* horizontal centering */
+  overflow: hidden;         /* hides the top/bottom background rows */
+}
+
+/* Style the ASCII output */
+#ascii {
+  white-space: pre;         /* preserve spacing and newlines */
+  font-family: monospace;
+  font-size: 12px;          /* adjust to zoom in/out */
+  line-height: 12px;        /* match to preserve aspect ratio */
+  margin: 0;
+  text-align: center;       /* optional – helps horizontally align */
+}
