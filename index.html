@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Frontend Lab | Showcase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Abstract Background Lights -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <header class="header">
+        <div class="logo-container">
+            <div class="logo-icon">⚡</div>
+            <div class="logo-text">
+                <h1>Creative Frontend Lab</h1>
+                <p>A collection of premium interactive designs, 3D simulations, and creative UI concepts.</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Filter Controls -->
+        <div class="filter-wrapper">
+            <div class="filter-label">Filter Experiments</div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="3d-canvas">3D & Canvas</button>
+                <button class="filter-btn" data-filter="creative-ui">Creative UI</button>
+                <button class="filter-btn" data-filter="animations-art">Animations & Art</button>
+                <button class="filter-btn" data-filter="interactions">Interactions</button>
+            </div>
+        </div>
+
+        <!-- Project Grid -->
+        <div class="project-grid" id="project-grid">
+            
+            <!-- Vanguard -->
+            <div class="project-card" data-category="creative-ui">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <span class="category-badge">Creative UI</span>
+                    <h3 class="project-title">⚡ Vanguard Agency</h3>
+                    <p class="project-desc">Ultra-premium creative landing page showcasing React, Vite, TS, and Tailwind CSS. Features dynamic navigation tracking and timezone overlays.</p>
+                    <div class="tech-tags">
+                        <span>React</span>
+                        <span>TypeScript</span>
+                        <span>Tailwind</span>
+                        <span>Vite</span>
+                    </div>
+                    <a href="Vanguard/dist/index.html" target="_blank" class="launch-btn">
+                        <span>Launch App</span>
+                        <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Interactive Developer Portfolio -->
+            <div class="project-card" data-category="creative-ui">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <span class="category-badge">Creative UI</span>
+                    <h3 class="project-title">📂 Developer Portfolio</h3>
+                    <p class="project-desc">A highly interactive personal landing page with rich custom animations, tabbeds layouts, and polished responsive layouts.</p>
+                    <div class="tech-tags">
+                        <span>HTML5</span>
+                        <span>Vanilla CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <a href="Interactive Developer Portfolio/dist/index.html" target="_blank" class="launch-btn">
+                        <span>Launch Portfolio</span>
+                        <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 3D Quantum Neural Network -->
+            <div class="project-card" data-category="3d-canvas">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <span class="category-badge">3D & Canvas</span>
+                    <h3 class="project-title">🧠 Quantum Neural Network</h3>
+                    <p class="project-desc">Stunning interactive 3D particle simulation of a neural network node with glassmorphism sidebar control panel and color theme selectors.</p>
+                    <div class="tech-tags">
+                        <span>HTML5 Canvas</span>
+                        <span>3D Math</span>
+                        <span>Glassmorphism</span>
+                    </div>
+                    <a href="3D Quantum Neural Network/dist/index.html" target="_blank" class="launch-btn">
+                        <span>Launch Simulation</span>
+                        <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- BlackHole -->
+            <div class="project-card" data-category="3d-canvas">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <span class="category-badge">3D & Canvas</span>
+                    <h3 class="project-title">🕳️ BlackHole Physics</h3>
+                    <p class="project-desc">Hypnotic simulation of matter falling into a black hole accretion disk. High-fidelity rendering with custom particle systems.</p>
+                    <div class="tech-tags">
+                        <span>HTML5 Canvas</span>
+                        <span>Physics</span>
+                        <span>Animations</span>
+                    </div>
+                    <a href="BlackHole/dist/index.html" target="_blank" class="launch-btn">
+                        <span>Launch Simulation</span>
+                        <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Rotating 3D Skull -->
+            <div class="project-card" data-category="3d-canvas">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <span class="category-badge">3D & Canvas</span>
+                    <h3 class="project-title">💀 Rotating 3D Skull</h3>
+                    <p class="project-desc">A responsive, dynamic 3D rendering of a human skull rotating in virtual space with particle tracers and neon grid backdrops.</p>
+                    <div class="tech-tags">
+                        <span>Three.js</span>
+                        <span>WebGL</span>
+                        <span>3D Rendering</span>
+                    </div>
+                    <a href="Rotating 3D Skull/dist/index.html" target="_blank" class="launch-btn">
+                        <span>Launch Viewer</span>
+                        <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 3D Dices -->
+            <div class="project-card" data-category="3d-canvas">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <span class="category-badge">3D & Canvas</span>
+                    <h3 class="project-title">🎲 3D Dices</h3>
+                    <p class="project-desc">Real-time interactive 3D physics-based dice rolling environment. Click, shake, and throw with accurate dynamic reflections.</p>
+                    <div class="tech-tags">
+                        <span>WebGL</span>
+                        <span>Physics</span>
+                        <span>Three.js</span>
+                    </div>
+                    <a href="3D Dices/dist/index.html" target="_blank" class="launch-btn">
+                        <span>Roll Dices</span>
+                        <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hyper Kinetic Brutalism -->
+            <div class="project-card" data-category="creative-ui">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <span class="category-badge">Creative UI</span>
+                    <h3 class="project-title">🛹 Kinetic Brutalism</h3>
+                    <p class="project-desc">A conceptual layout leveraging extreme neo-brutalist layouts, high-contrast grids, kinetic fonts, and bold active hover states.</p>
+                    <div class="tech-tags">
+                        <span>CSS Variables</span>
+                        <span>Grid</span>
+                        <span>Typography</span>
+                    </div>
+                    <a href="Hyper Kinetic Brutalism/dist/index.html" target="_blank" class="launch-btn">
+                        <span>Explore Design</span>
+                        <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Google Antigravity -->
+            <div class="project-card" data-category="animations-art">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <span class="category-badge">Animations & Art</span>
+                    <h3 class="project-title">🌍 Google Antigravity</h3>
+                    <p class="project-desc">A playful, modernized CSS/JS physics replica of Google Search landing page collapsing under custom anti-gravity forces.</p>
+                    <div class="tech-tags">
+                        <span>Physics Engine</span>
+                        <span>CSS3</span>
+                        <span>Interactive</span>
+                    </div>
+                    <a href="Google Antigravity with modern css/dist/index.html" target="_blank" class="launch-btn">
+                        <span>Toggle Gravity</span>
+                        <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Flower -->
+            <div class="project-card" data-category="animations-art">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <span class="category-badge">Animations & Art</span>
+                    <h3 class="project-title">🌸 Mathematical Flower</h3>
+                    <p class="project-desc">An interactive generative mathematical bloom canvas. Customize parameters to spawn organic spiral structures recursively.</p>
+                    <div class="tech-tags">
+                        <span>HTML5 Canvas</span>
+                        <span>Generative Art</span>
+                    </div>
+                    <a href="Flower/dist/index.html" target="_blank" class="launch-btn">
+                        <span>Generate Art</span>
+                        <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Six Faces Walking The Cow -->
+            <div class="project-card" data-category="animations-art">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <span class="category-badge">Animations & Art</span>
+                    <h3 class="project-title">🐄 Walking The Cow</h3>
+                    <p class="project-desc">A quirky 3D geometric layout animation tracking a walking cow across six faces of a morphing cubic container.</p>
+                    <div class="tech-tags">
+                        <span>CSS 3D Transform</span>
+                        <span>Keyframes</span>
+                    </div>
+                    <a href="Six Faces Walking The Cow/dist/index.html" target="_blank" class="launch-btn">
+                        <span>Watch Animation</span>
+                        <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Christmas Switcher Tree -->
+            <div class="project-card" data-category="animations-art">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <span class="category-badge">Animations & Art</span>
+                    <h3 class="project-title">🎄 Christmas Switcher</h3>
+                    <p class="project-desc">A seasonal, interactive Christmas tree visualization. Flick custom UI toggles and switches to light up glowing micro-led nodes.</p>
+                    <div class="tech-tags">
+                        <span>CSS Variables</span>
+                        <span>Festive UI</span>
+                    </div>
+                    <a href="Christmas Switcher Tree/dist/index.html" target="_blank" class="launch-btn">
+                        <span>Decorate Tree</span>
+                        <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Happy New Year -->
+            <div class="project-card" data-category="animations-art">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <span class="category-badge">Animations & Art</span>
+                    <h3 class="project-title">🎆 New Year Fireworks</h3>
+                    <p class="project-desc">Launch explosive fireworks with dynamic canvas trails. Click to detonate different chemical colors and particle counts.</p>
+                    <div class="tech-tags">
+                        <span>HTML5 Canvas</span>
+                        <span>Particles</span>
+                    </div>
+                    <a href="Happy New Year/dist/index.html" target="_blank" class="launch-btn">
+                        <span>Launch Fireworks</span>
+                        <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Creepy Button -->
+            <div class="project-card" data-category="interactions">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <span class="category-badge">Interactions</span>
+                    <h3 class="project-title">👁️ Creepy Button</h3>
+                    <p class="project-desc">An interactive component featuring an organic eye that physically tracks your cursor coordinates as it draws closer.</p>
+                    <div class="tech-tags">
+                        <span>Cursor Tracking</span>
+                        <span>SVG Math</span>
+                    </div>
+                    <a href="Creepy Button/dist/index.html" target="_blank" class="launch-btn">
+                        <span>Hover Button</span>
+                        <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 404 Error Face -->
+            <div class="project-card" data-category="interactions">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <span class="category-badge">Interactions</span>
+                    <h3 class="project-title">😵 404 Error Face</h3>
+                    <p class="project-desc">A highly creative 404 error page. The face expressions morph dynamically based on browser movements and window size.</p>
+                    <div class="tech-tags">
+                        <span>Responsive UI</span>
+                        <span>Morph Animations</span>
+                    </div>
+                    <a href="404 Error Face/dist/index.html" target="_blank" class="launch-btn">
+                        <span>Trigger Error</span>
+                        <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Playing Card -->
+            <div class="project-card" data-category="interactions">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <span class="category-badge">Interactions</span>
+                    <h3 class="project-title">🃏 Playing Card</h3>
+                    <p class="project-desc">A premium 3D hoverable card component with relative mouse parallax tilting, custom reflective gloss overlays, and metallic highlights.</p>
+                    <div class="tech-tags">
+                        <span>Parallax</span>
+                        <span>3D Hover</span>
+                        <span>CSS Effects</span>
+                    </div>
+                    <a href="Playing Card/dist/index.html" target="_blank" class="launch-btn">
+                        <span>Tilt Card</span>
+                        <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tailwind Example -->
+            <div class="project-card" data-category="creative-ui">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <span class="category-badge">Creative UI</span>
+                    <h3 class="project-title">🎨 Darkmode UI</h3>
+                    <p class="project-desc">A clean, dashboard UI demonstrating utility-first Tailwind layouts with a smooth theme-switching configuration.</p>
+                    <div class="tech-tags">
+                        <span>Tailwind CSS</span>
+                        <span>Dark Mode</span>
+                    </div>
+                    <a href="Tailwind Example/Darkmode.html" target="_blank" class="launch-btn">
+                        <span>Open Dashboard</span>
+                        <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>Developed with 🖤 by <a href="https://github.com/Nikhilkr014" target="_blank">Nikhilkr014</a></p>
+    </footer>
+
+    <script>
+        // Interactive Category Filter
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Toggle active button state
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+
+                // Filter cards with animations
+                projectCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+                    
+                    if (filterValue === 'all' || cardCategory === filterValue) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 50);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // 3D Card Hover Effect for Neon Glow tracking
+        projectCards.forEach(card => {
+            const glow = card.querySelector('.card-glow');
+            
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                glow.style.left = `${x}px`;
+                glow.style.top = `${y}px`;
+                glow.style.opacity = '1';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                glow.style.opacity = '0';
+            });
+        });
+    </script>
+</body>
+</html>
