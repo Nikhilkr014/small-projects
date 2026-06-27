@@ -1,6 +1,6 @@
-# 🪐 Multiverse of Innovation: The 16-Project Lab
+# 🪐 Multiverse of Innovation: The 17-Project Lab
 
-Welcome to my central creative hub. This repository serves as a live gallery housing **16 interactive web applications, tools, and experimental builds** managed from a single unified ecosystem. 
+Welcome to my central creative hub. This repository serves as a live gallery housing **17 interactive web applications, tools, and experimental builds** managed from a single unified ecosystem. 
 
 Each piece within this lab represents an exploration of modern frontend architectures, interactive motion design, and algorithmic problem-solving.
 
@@ -29,7 +29,8 @@ Below is a breakdown of the core experiments running live within this hub:
 | 02 | **Liquid Dr Pepper Concept** | 3D web experience utilizing depth texturing and liquid shaders | GSAP, Three.js, Tailwind |
 | 03 | **IoT Serial Interface** | Real-time monitoring simulator tracking packet streaming over serial lines | Arduino API, Web Serial |
 | 04 | **Neon Grid Tracking Canvas** | Interactive pointer-tracking hover layers with synchronized glow calculation | GSAP, CSS Grid |
-| 05—16 | **Micro-Experiences** | 12 additional highly focused logic algorithms, game engines, and utilities | ES6+ JS, Custom CSS |
+| 05 | **World Cup 2026 Album** | Interactive sticker collecting album with pack opening simulation and collection tracking | React, Vite, Tailwind CSS |
+| 06—17 | **Micro-Experiences** | 12 additional highly focused logic algorithms, game engines, and utilities | ES6+ JS, Custom CSS |
 
 ---
 
