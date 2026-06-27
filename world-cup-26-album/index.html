@@ -1,5 +1,39 @@
 <!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
+    <script>
+      (function() {
+        const base = "/small-projects/world-cup-26-album";
+        const originalPathnameDescriptor = Object.getOwnPropertyDescriptor(Location.prototype, 'pathname');
+        Object.defineProperty(Location.prototype, 'pathname', {
+          get: function() {
+            const rawPath = originalPathnameDescriptor.get.call(this);
+            if (rawPath.startsWith(base)) {
+              let cleaned = rawPath.slice(base.length);
+              if (cleaned.endsWith("/index.html")) {
+                cleaned = cleaned.slice(0, -10);
+              }
+              return cleaned || "/";
+            }
+            return rawPath;
+          },
+          configurable: true
+        });
+        const originalPush = History.prototype.pushState;
+        History.prototype.pushState = function(state, title, url) {
+          if (url && typeof url === 'string' && !url.startsWith(base) && !url.startsWith('http')) {
+            url = base + (url.startsWith('/') ? '' : '/') + url;
+          }
+          return originalPush.call(this, state, title, url);
+        };
+        const originalReplace = History.prototype.replaceState;
+        History.prototype.replaceState = function(state, title, url) {
+          if (url && typeof url === 'string' && !url.startsWith(base) && !url.startsWith('http')) {
+            url = base + (url.startsWith('/') ? '' : '/') + url;
+          }
+          return originalReplace.call(this, state, title, url);
+        };
+      })();
+    </script>
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
     <link rel="icon" type="image/png" href="images/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
